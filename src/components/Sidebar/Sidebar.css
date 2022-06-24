@@ -3,9 +3,14 @@
   padding-bottom: 64px;
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  justify-content: space-between;
   min-height: 100vh;
-  /* border: 1px solid white; */
+}
+
+.sidebar__body {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }
 
 .sidebar__nav__ul {
@@ -29,25 +34,24 @@
   transition: 0.3s;
 }
 
-.sidebar__icons {
-  color: #80858b;
+.sidebar__icons > path {
+  fill: #80858b;
   transition: 0.3s;
 }
 
-.sidebar__icons._active,
+.sidebar__icons._active > path,
 .sidebar__nav__ul__li__content._active {
   color: #7b61ff;
+  fill: #7b61ff;
 }
 
-.sidebar__sidebar__nav__ul__li:hover .sidebar__icons,
+.sidebar__sidebar__nav__ul__li:hover .sidebar__icons > path,
 .sidebar__sidebar__nav__ul__li:hover .sidebar__nav__ul__li__content {
   color: #917cff;
+  fill: #917cff;
 }
 
 .sidebar__footer {
-}
-
-.sidebar__footer span {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;

@@ -27,43 +27,7 @@
   align-items: flex-end;
   gap: 4px;
   position: absolute;
-  top: 22px;
+  top: 16px;
   right: 20px;
   cursor: pointer;
-}
-
-.filter__item1,
-.filter__item2,
-.filter__item3 {
-  border-radius: 10px;
-  height: 2px;
-  background-color: #afb2b6;
-}
-
-.filter__item1._active,
-.filter__item2._active,
-.filter__item3._active {
-  background-color: #ffffff;
-}
-
-.filter__item1 {
-  width: 16px;
-}
-
-.filter__item2 {
-  width: 11px;
-}
-
-.filter__item3 {
-  width: 7px;
-}
-
-.filter__circle._active {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 100%;
-  background-color: #7b61ff;
-  top: 11px;
-  left: -3px;
 }
