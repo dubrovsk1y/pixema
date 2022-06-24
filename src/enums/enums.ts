@@ -7,14 +7,7 @@ export enum SidebarTabs {
   Settings = "Settings",
 }
 
-export enum SidebarIcons {
-  Home = "home",
-  Trends = "local_fire_department",
-  Favorites = "bookmark",
-  Settings = "settings",
-}
-
-export enum Paths {
+export enum Path {
   Home = "/home",
   Trends = "/trends",
   Favorites = "/favorites",
