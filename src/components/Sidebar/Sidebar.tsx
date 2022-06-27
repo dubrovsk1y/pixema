@@ -1,6 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
-import { SidebarTabs, Path } from "../../enums/enums";
+import { SidebarTabsEnum, PathEnum } from "../../enums/enums";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 import HomeSvg from "../../icons/HomeSvg";
@@ -10,10 +10,15 @@ import SettingsSvg from "../../icons/SettingsSvg";
 import LogoSvg from "../../icons/LogoSvg";
 
 const TABS = [
-  { tabName: SidebarTabs.Home, icon: <HomeSvg></HomeSvg>, id: Math.random(), path: Path.Home },
-  { tabName: SidebarTabs.Trends, icon: <TrendsSvg></TrendsSvg>, id: Math.random(), path: Path.Trends },
-  { tabName: SidebarTabs.Favorites, icon: <FavoritesSvg></FavoritesSvg>, id: Math.random(), path: Path.Favorites },
-  { tabName: SidebarTabs.Settings, icon: <SettingsSvg></SettingsSvg>, id: Math.random(), path: Path.Settings },
+  { tabName: SidebarTabsEnum.Home, icon: <HomeSvg></HomeSvg>, id: Math.random(), path: PathEnum.Home },
+  { tabName: SidebarTabsEnum.Trends, icon: <TrendsSvg></TrendsSvg>, id: Math.random(), path: PathEnum.Trends },
+  {
+    tabName: SidebarTabsEnum.Favorites,
+    icon: <FavoritesSvg></FavoritesSvg>,
+    id: Math.random(),
+    path: PathEnum.Favorites,
+  },
+  { tabName: SidebarTabsEnum.Settings, icon: <SettingsSvg></SettingsSvg>, id: Math.random(), path: PathEnum.Settings },
 ];
 
 const Sidebar = () => {
@@ -36,7 +41,7 @@ const Sidebar = () => {
                   {icon}
                   <span
                     className={classNames("sidebar__nav__ul__li__content", {
-                      ["_active"]: tabName === SidebarTabs.Home,
+                      ["_active"]: tabName === SidebarTabsEnum.Home,
                     })}
                   >
                     {tabName}

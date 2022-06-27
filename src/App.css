@@ -8,12 +8,22 @@
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
+svg path,
+button {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
 body {
   background-color: #000000;
 }
 
 body._light {
   background: #ffffff;
+}
+
+body._lock {
+  overflow: hidden;
 }
 
 ._container {

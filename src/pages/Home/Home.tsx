@@ -5,6 +5,9 @@ import HeaderPage from "../../components/HeaderPage";
 import Sidebar from "../../components/Sidebar";
 import FilmsCardsList from "../../components/FilmsCardsList";
 import { FilmSelectors, loadFilmsData } from "../../redux/reducers/filmReducer";
+import FiltersMenu from "../../components/FiltersMenu";
+import { FilterSelectors } from "../../redux/reducers/filterReducer";
+import classNames from "classnames";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -14,9 +17,10 @@ const Home = () => {
   }, []);
 
   const filmsList = useSelector(FilmSelectors.getFilmsList);
+  const isFilterMenuOpen = useSelector(FilterSelectors.getFilterMenuStatus);
 
   return (
-    <div className="home">
+    <div className={classNames("home", { ["_lock"]: isFilterMenuOpen })}>
       <div className="home__container _container">
         <Sidebar></Sidebar>
         <div className="home__content">
@@ -24,6 +28,7 @@ const Home = () => {
           <FilmsCardsList data={filmsList}></FilmsCardsList>
         </div>
       </div>
+      <FiltersMenu></FiltersMenu>
     </div>
   );
 };

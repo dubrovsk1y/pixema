@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { SidebarTabs } from "../../enums/enums";
+import { SidebarTabsEnum } from "../../enums/enums";
 
 type TabState = {
   sidebarTab: string;
 };
 
 const initialState: TabState = {
-  sidebarTab: SidebarTabs.Home,
+  sidebarTab: SidebarTabsEnum.Home,
 };
 
 const tabSlice = createSlice({
