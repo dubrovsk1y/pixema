@@ -1,0 +1,13 @@
+.pagesWrapper {
+  font-family: "Exo 2", sans-serif;
+}
+
+.pages__container {
+  display: flex;
+  gap: 146px;
+}
+
+.pages__content {
+  flex-grow: 1;
+  padding-top: 40px;
+}
