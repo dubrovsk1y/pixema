@@ -4,11 +4,10 @@ const API = create({
   baseURL: "http://www.omdbapi.com/",
 });
 
-const getFilmsListApi = ({ search = "all" }) => {
+const getFilmsListApi = ({ search = "all", page = 1 }) => {
   return API.get("", {
     s: search,
-    page: 2,
-    limit: 3,
+    page,
     apikey: "ceb908f",
   });
 };

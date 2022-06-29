@@ -1,14 +1,22 @@
-import classNames from "classnames";
 import React from "react";
+import "./FiltersMenu.css";
+import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import { ButtonEnum } from "../../enums/enums";
-import CanelSvg from "../../icons/CancelSvg";
-import { FilterSelectors, setFilterMenuStatus } from "../../redux/reducers/filterReducer";
+import {
+  FilterSelectors,
+  setFilterMenuStatus,
+  setFilterMovieName,
+  setFilterRatingFrom,
+  setFilterRatingTo,
+  setFilterYearsFrom,
+  setFilterYearsTo,
+} from "../../redux/reducers/filterReducer";
 import Button from "../Button";
 import CustomSelect from "../CustomSelect";
 import Input from "../Input";
 import SortTabs from "../SortTabs";
-import "./FiltersMenu.css";
+import CanelSvg from "../../icons/CancelSvg";
 
 const FiltersMenu = () => {
   const dispatch = useDispatch();
@@ -18,6 +26,36 @@ const FiltersMenu = () => {
     if (event.target.classList.contains("filtersMenu__body")) {
       dispatch(setFilterMenuStatus(false));
       document.body.classList.remove("_lock");
+    }
+  };
+
+  const clearFilter = () => {
+    // code
+  };
+
+  const showResults = () => {
+    // code
+  };
+
+  const onChangeInput = (event: any) => {
+    switch (event.target.id) {
+      case "movieName":
+        dispatch(setFilterMovieName(event.target.value));
+        break;
+      case "yearsFrom":
+        dispatch(setFilterYearsFrom(event.target.value));
+        break;
+      case "yearsTo":
+        dispatch(setFilterYearsTo(event.target.value));
+        break;
+      case "ratingFrom":
+        dispatch(setFilterRatingFrom(event.target.value));
+        break;
+      case "ratingTo":
+        dispatch(setFilterRatingTo(event.target.value));
+        break;
+      default:
+        break;
     }
   };
 
@@ -35,7 +73,12 @@ const FiltersMenu = () => {
 
         <div className="movieName">
           <label htmlFor="movieName">Full or short movie name</label>
-          <Input className={classNames("default-input")} id="movieName" placeholder="Your text"></Input>
+          <Input
+            onChange={onChangeInput}
+            className={classNames("default-input")}
+            id="movieName"
+            placeholder="Your text"
+          ></Input>
         </div>
 
         <div className="genre">
@@ -46,8 +89,18 @@ const FiltersMenu = () => {
         <div className="years">
           <label htmlFor="years">Years</label>
           <div className="years__inputs">
-            <Input className={classNames("default-input")} id="years" placeholder="From"></Input>
-            <Input className={classNames("default-input")} placeholder="To"></Input>
+            <Input
+              className={classNames("default-input")}
+              onChange={onChangeInput}
+              id="yearsFrom"
+              placeholder="From"
+            ></Input>
+            <Input
+              onChange={onChangeInput}
+              id="yearsTo"
+              className={classNames("default-input")}
+              placeholder="To"
+            ></Input>
           </div>
         </div>
 
@@ -56,10 +109,16 @@ const FiltersMenu = () => {
           <div className="rating__inputs">
             <Input
               className={classNames("default-input", { ["_error"]: false })}
-              id="rating"
+              onChange={onChangeInput}
+              id="ratingFrom"
               placeholder="From"
             ></Input>
-            <Input className={classNames("default-input")} placeholder="To"></Input>
+            <Input
+              className={classNames("default-input")}
+              onChange={onChangeInput}
+              id={"ratingTo"}
+              placeholder="To"
+            ></Input>
           </div>
         </div>
 
@@ -69,8 +128,8 @@ const FiltersMenu = () => {
         </div>
 
         <div className="filtersMenu__content__footer">
-          <Button text={ButtonEnum.Clear} className={classNames("secondary")}></Button>
-          <Button text={ButtonEnum.Show} className={classNames("primary")}></Button>
+          <Button onClick={clearFilter} text={ButtonEnum.Clear} className={classNames("secondary")}></Button>
+          <Button onClick={showResults} text={ButtonEnum.Show} className={classNames("primary")}></Button>
         </div>
       </div>
     </div>

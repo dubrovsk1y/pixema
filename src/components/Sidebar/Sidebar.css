@@ -21,8 +21,21 @@
 
 .sidebar__sidebar__nav__ul__li {
   display: flex;
+  max-width: max-content;
   gap: 23px;
   cursor: pointer;
+}
+
+.sidebar__sidebar__nav__ul__li._active svg path,
+.sidebar__sidebar__nav__ul__li._active .sidebar__nav__ul__li__content {
+  fill: #7b61ff;
+  color: #7b61ff;
+}
+
+.sidebar__sidebar__nav__ul__li:hover svg path,
+.sidebar__sidebar__nav__ul__li:hover .sidebar__nav__ul__li__content {
+  color: #917cff;
+  fill: #917cff;
 }
 
 .sidebar__nav__ul__li__content {
@@ -32,23 +45,6 @@
   line-height: 24px;
   color: #80858b;
   transition: 0.3s;
-}
-
-.sidebar__icons > path {
-  fill: #80858b;
-  transition: 0.3s;
-}
-
-.sidebar__icons._active > path,
-.sidebar__nav__ul__li__content._active {
-  color: #7b61ff;
-  fill: #7b61ff;
-}
-
-.sidebar__sidebar__nav__ul__li:hover .sidebar__icons > path,
-.sidebar__sidebar__nav__ul__li:hover .sidebar__nav__ul__li__content {
-  color: #917cff;
-  fill: #917cff;
 }
 
 .sidebar__footer {

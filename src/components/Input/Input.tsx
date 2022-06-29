@@ -5,10 +5,11 @@ type InputProps = {
   placeholder: string;
   id?: string;
   className?: string;
+  onChange?: (event: any) => void;
 };
 
-const Input: FC<InputProps> = ({ placeholder, id, className }) => {
-  return <input id={id} className={className} placeholder={placeholder} type="text" />;
+const Input: FC<InputProps> = ({ onChange, placeholder, id, className }) => {
+  return <input onChange={onChange} id={id} className={className} placeholder={placeholder} type="text" />;
 };
 
 export default Input;
