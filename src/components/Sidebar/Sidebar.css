@@ -1,6 +1,5 @@
 .sidebar {
   padding-top: 48px;
-  padding-bottom: 64px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -52,4 +51,10 @@
   font-size: 16px;
   line-height: 24px;
   color: #afb2b6;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
 }

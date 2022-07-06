@@ -3,17 +3,33 @@
   position: relative;
 }
 
+.search._disabled {
+  pointer-events: none;
+}
+
 .search__input {
   width: 100%;
   font-family: "Exo 2", sans-serif;
   padding: 16px 55px 16px 20px;
-  background: #323537;
+  background-color: #323537;
   border-radius: 10px;
   border: none;
   color: #ffffff;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+}
+
+.search__input::placeholder {
+  color: #80858b;
+}
+
+.search__input._disabled {
+  background-color: #80858b;
+}
+
+.search__input._disabled::placeholder {
+  color: #afb2b6;
 }
 
 .search__input:focus {

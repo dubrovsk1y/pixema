@@ -12,11 +12,14 @@ export enum PathEnum {
   Trends = "/trends",
   Favorites = "/favorites",
   Settings = "/settings",
+  Auth = "/auth",
+  SignIn = "/auth/signin",
+  SignUp = "/auth/signup",
 }
 
 export enum FilterSortTabsEnum {
-  Ratings = "Ratings",
-  Year = "Year",
+  Movie = "Movie",
+  Series = "Series",
 }
 
 export enum ButtonEnum {

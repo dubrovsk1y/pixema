@@ -1,31 +1,19 @@
-import React, { FC, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { FilmSelectors, loadFilmsData } from "../../redux/reducers/filmReducer";
+import React, { FC } from "react";
+import "./FilmsCardsList.css";
 import { FilmType } from "../../types";
 import FilmCard from "../FilmCard";
-import "./FilmsCardsList.css";
 
 type FilmsCardsListProps = {
-  page: string;
+  filmsList: any;
 };
 
-const FilmsCardsList: FC<FilmsCardsListProps> = ({ page }) => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(loadFilmsData({}));
-  }, []);
-
-  const filmsList = useSelector(FilmSelectors.getFilmsList);
-
+const FilmsCardsList: FC<FilmsCardsListProps> = ({ filmsList }) => {
   return (
-    <main className="films">
-      <div className="films__container">
-        {filmsList.map((film: FilmType) => (
-          <FilmCard key={film.imdbID} data={film}></FilmCard>
-        ))}
-      </div>
-    </main>
+    <div className="films__list">
+      {filmsList.map((film: FilmType) => (
+        <FilmCard key={film.id} data={film}></FilmCard>
+      ))}
+    </div>
   );
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setFilterMenuStatus } from "../redux/reducers/filterReducer";
 
-const FilterSvg = () => {
+const FilterSvg = ({ isDisabled }: any) => {
   const dispatch = useDispatch();
   const isFiltersActive = false;
 

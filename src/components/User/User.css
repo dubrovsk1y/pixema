@@ -61,7 +61,7 @@
   background: #242426;
   border-radius: 10px;
 }
-.menu-item {
+.menuItem {
   font-family: "Exo 2", sans-serif;
   cursor: pointer;
   font-weight: 500;
@@ -72,10 +72,10 @@
   transition: 0.3s;
 }
 
-.menu-item:not(:last-child) {
+.menuItem:not(:last-child) {
   border-bottom: 1px solid #323537;
 }
 
-.menu-item:hover {
+.menuItem:hover {
   color: #7b61ff;
 }

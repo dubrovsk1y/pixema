@@ -2,9 +2,28 @@ import React, { useState } from "react";
 import "./User.css";
 import Popup from "reactjs-popup";
 import classNames from "classnames";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { PathEnum, SidebarTabsEnum } from "../../enums/enums";
+import { setSidebarTab } from "../../redux/reducers/tabReducer";
+import { setAuthStatus } from "../../redux/reducers/authReducer";
 
 const User = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [isMenuOpen, setMenu] = useState(false);
+
+  const onEditProfileClick = () => {
+    navigate(PathEnum.Settings);
+    dispatch(setSidebarTab(SidebarTabsEnum.Settings));
+  };
+
+  const onLogoutClick = () => {
+    dispatch(setAuthStatus(false));
+    localStorage.removeItem("access_token");
+    navigate(PathEnum.SignIn);
+  };
 
   return (
     <div className="user">
@@ -12,7 +31,9 @@ const User = () => {
         <div className="user__icon">
           <span className="user__icon__name">UN</span>
         </div>
-        <span className="user__username">User name</span>
+        <span onClick={onEditProfileClick} className="user__username">
+          User name
+        </span>
       </div>
       <Popup
         trigger={
@@ -31,8 +52,12 @@ const User = () => {
         arrow={false}
       >
         <div className="menu">
-          <div className="menu-item">Edit profile</div>
-          <div className="menu-item">Logout</div>
+          <div onClick={onEditProfileClick} className="menuItem">
+            Edit profile
+          </div>
+          <div onClick={onLogoutClick} className="menuItem">
+            Logout
+          </div>
         </div>
       </Popup>
     </div>

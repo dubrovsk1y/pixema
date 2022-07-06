@@ -1,10 +1,8 @@
 import React from "react";
-import classNames from "classnames";
 
 const SettingsSvg = () => {
   return (
     <svg
-      className={classNames("sidebar__icons", { ["_active"]: false })}
       width="20"
       height="20"
       viewBox="0 0 20 20"

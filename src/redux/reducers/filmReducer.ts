@@ -1,28 +1,41 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 type FilmState = {
-  filmsList: any;
+  searchFilms: any;
+  films: any;
+  favoritesFilms: any;
 };
 
 const initialState: FilmState = {
-  filmsList: [],
+  searchFilms: [],
+  films: [],
+  favoritesFilms: [],
 };
 
 const filmSlice = createSlice({
   name: "films",
   initialState,
   reducers: {
-    setFilmsList: (state: any, action: any) => {
-      state.filmsList = action.payload;
+    setMoreFilms: (state: any, action: any) => {
+      state.films = [...state.films, ...action.payload];
     },
-    loadFilmsData: (state: any, action: any) => {},
+    setFilms: (state: any, action: any) => {
+      state.films = action.payload;
+    },
+    setSearchFilms: (state: any, action: any) => {
+      state.searchFilms = action.payload;
+    },
+
+    loadFilms: (state: any, action: any) => {},
+    loadSearchFilms: (state: any, action: any) => {},
   },
 });
 
-export const { setFilmsList, loadFilmsData } = filmSlice.actions;
+export const { setMoreFilms, setFilms, setSearchFilms, loadFilms, loadSearchFilms } = filmSlice.actions;
 
 export default filmSlice.reducer;
 
 export const FilmSelectors = {
-  getFilmsList: (state: any) => state.film.filmsList,
+  getFilms: (state: any) => state.film.films,
+  getSearchFilms: (state: any) => state.film.searchFilms,
 };

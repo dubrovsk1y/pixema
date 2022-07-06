@@ -4,12 +4,13 @@ import "./Button.css";
 type ButtonProps = {
   className: any;
   text: string;
-  onClick: () => void;
+  id?: string;
+  onClick?: () => void;
 };
 
-const Button: FC<ButtonProps> = ({ className, text, onClick }) => {
+const Button: FC<ButtonProps> = ({ className, text, id, onClick }) => {
   return (
-    <button onClick={onClick} className={className}>
+    <button id={id} onClick={onClick} className={className}>
       {text}
     </button>
   );

@@ -7,16 +7,16 @@ type FilmProps = {
 };
 
 const FilmCard: FC<FilmProps> = ({ data }) => {
-  const { Title, Year, imdbID, Type, Poster } = data;
+  const { name, poster, is_series } = data;
 
   return (
     <div className="film">
       <div className="film__image">
-        <img src={Poster} alt={Title} />
+        <img src={poster} alt={name} />
       </div>
       <div className="film__info">
-        <h3 className="film__info__title">{Title}</h3>
-        <p className="film__info__type">{Type}</p>
+        <h3 className="film__info__title">{name}</h3>
+        <p className="film__info__type">{is_series ? "series" : "movie"}</p>
       </div>
     </div>
   );

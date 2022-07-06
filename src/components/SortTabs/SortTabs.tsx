@@ -14,7 +14,7 @@ const SortTabs = () => {
 
   const activeTab = useSelector(FilterSelectors.getFilterSortTab);
 
-  const TABS = [{ tabName: FilterSortTabsEnum.Ratings }, { tabName: FilterSortTabsEnum.Year }];
+  const TABS = [{ tabName: FilterSortTabsEnum.Movie }, { tabName: FilterSortTabsEnum.Series }];
 
   return (
     <div className="sortTabs">

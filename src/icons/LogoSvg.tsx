@@ -1,8 +1,32 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { PathEnum, SidebarTabsEnum } from "../enums/enums";
+import { AuthSelectors } from "../redux/reducers/authReducer";
+import { setSidebarTab } from "../redux/reducers/tabReducer";
 
 const LogoSvg = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const authStatus = useSelector(AuthSelectors.getAuthStatus);
+
+  const onLogoClick = () => {
+    navigate(authStatus ? PathEnum.Home : PathEnum.SignIn);
+    if (authStatus) {
+      dispatch(setSidebarTab(SidebarTabsEnum.Home));
+    }
+  };
+
   return (
-    <svg width="158" height="40" viewBox="0 0 158 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      cursor={"pointer"}
+      onClick={onLogoClick}
+      width="158"
+      height="40"
+      viewBox="0 0 158 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M5.51105 9.67813L6.01623 12.8746C6.96536 11.7795 8.26658 10.8768 9.91989 10.1665C11.6038 9.45616 13.3031 9.101 15.0176 9.101C20.2225 9.101 22.8249 13.0078 22.8249 20.8213C22.8249 25.024 22.1208 27.9689 20.7124 29.6559C19.3346 31.3134 17.1608 32.1421 14.191 32.1421C11.1293 32.1421 8.60336 31.4317 6.61326 30.0111C6.76635 31.5205 6.81227 33.0892 6.75104 34.717V40H0V9.67813H5.51105ZM6.75104 16.3374V26.3707C9.13916 26.9626 10.8537 27.2586 11.8947 27.2586C13.3949 27.2586 14.4206 26.8442 14.9717 26.0155C15.5534 25.1868 15.8443 23.4554 15.8443 20.8213C15.8443 18.2464 15.584 16.515 15.0635 15.6271C14.5431 14.7096 13.6245 14.2508 12.308 14.2508C10.8078 14.2508 8.95546 14.9464 6.75104 16.3374Z"
         fill="#7B61FF"

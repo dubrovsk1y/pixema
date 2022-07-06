@@ -1,6 +1,7 @@
 import { all } from "redux-saga/effects";
-import filmsWatcher from "./filmSaga";
+import authWatcher from "./authSaga";
+import filmWatcher from "./filmSaga";
 
 export default function* rootSaga() {
-  yield all([filmsWatcher()]);
+  yield all([authWatcher(), filmWatcher()]);
 }

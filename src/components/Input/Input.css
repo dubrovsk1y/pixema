@@ -1,4 +1,4 @@
-.default-input {
+.defaultInput {
   font-family: "Exo 2", sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -12,10 +12,10 @@
   padding: 0 20px;
 }
 
-.default-input:focus {
+.defaultInput:focus {
   outline: 2px solid #7b61ff;
 }
 
-.default-input._error {
+.defaultInput._error {
   outline: 2px solid #ff5154;
 }

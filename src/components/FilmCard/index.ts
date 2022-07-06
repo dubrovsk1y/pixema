@@ -1,1 +1,1 @@
-export { default } from "./FimlCard";
+export { default } from "./FilmCard";

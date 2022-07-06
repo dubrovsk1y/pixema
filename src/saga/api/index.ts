@@ -1,15 +1,50 @@
 import { create } from "apisauce";
+import { LoginUserDataType, RegisterUserDataType } from "../../types";
 
 const API = create({
-  baseURL: "http://www.omdbapi.com/",
+  baseURL: "https://unelmamovie.com/api/v1",
 });
 
-const getFilmsListApi = ({ search = "all", page = 1 }) => {
-  return API.get("", {
-    s: search,
-    page,
-    apikey: "ceb908f",
-  });
+const registerUserApi = (registerUserData: RegisterUserDataType) => {
+  return API.post("/auth/register", registerUserData);
 };
 
-export { getFilmsListApi };
+const loginUserApi = (loginUserData: LoginUserDataType) => {
+  return API.post("/auth/login", loginUserData);
+};
+
+const searchApi = (token: any, query: any) => {
+  return API.get(
+    `/search/${query}`,
+    {
+      limit: 10,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+const getFilmsApi = (token: any, page: any, type: any, genre: any, country: any, order: any) => {
+  return API.get(
+    "/titles",
+    {
+      perPage: 10,
+      page,
+      type,
+      genre,
+      country,
+      order,
+      includeAdult: true,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+export { registerUserApi, loginUserApi, searchApi, getFilmsApi };

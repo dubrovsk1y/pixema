@@ -125,6 +125,7 @@
   color: #7b61ff !important;
 }
 
-.customSelect__indicator-separator {
+.customSelect__indicator-separator,
+.customSelect__clear-indicator {
   display: none !important;
 }

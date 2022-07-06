@@ -6,43 +6,63 @@ import { FilterSelectors, setFilterCountry, setFilterGenres } from "../../redux/
 
 const genres = [
   {
-    value: "adventure",
-    label: "Adventure",
+    value: "action",
+    label: "Action",
   },
   {
-    value: "dramma",
-    label: "Dramma",
+    value: "drama",
+    label: "Drama",
   },
   {
-    value: "documental",
-    label: "Documental",
+    value: "history",
+    label: "History",
   },
   {
     value: "thriller",
     label: "Thriller",
   },
+  {
+    value: "adventure",
+    label: "Adventure",
+  },
+  {
+    value: "fantasy",
+    label: "Fantasy",
+  },
 ];
 
 const countries = [
   {
-    value: "germany",
+    value: "",
+    label: "All countries",
+  },
+  {
+    value: "BE",
+    label: "Belgium",
+  },
+  {
+    value: "BR",
+    label: "Brazil",
+  },
+  {
+    value: "CA",
+    label: "Canada",
+  },
+  {
+    value: "DE",
     label: "Germany",
   },
   {
-    value: "ukrain",
-    label: "Ukrain",
+    value: "FR",
+    label: "France",
   },
   {
-    value: "poland",
-    label: "Poland",
+    value: "IN",
+    label: "India",
   },
   {
-    value: "japan",
+    value: "JP",
     label: "Japan",
-  },
-  {
-    value: "belarus",
-    label: "Belarus",
   },
 ];
 
