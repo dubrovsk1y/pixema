@@ -12,6 +12,7 @@ export enum PathEnum {
   Trends = "/trends",
   Favorites = "/favorites",
   Settings = "/settings",
+  Film = "/film/:id",
   Auth = "/auth",
   SignIn = "/auth/signin",
   SignUp = "/auth/signup",

@@ -47,4 +47,16 @@ const getFilmsApi = (token: any, page: any, type: any, genre: any, country: any,
   );
 };
 
-export { registerUserApi, loginUserApi, searchApi, getFilmsApi };
+const getSelectedFilmApi = (token: any, id: any) => {
+  return API.get(
+    `/titles/${id}`,
+    {},
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+export { registerUserApi, loginUserApi, searchApi, getFilmsApi, getSelectedFilmApi };

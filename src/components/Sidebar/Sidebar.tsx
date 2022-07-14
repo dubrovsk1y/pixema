@@ -10,7 +10,6 @@ import SettingsSvg from "../../icons/SettingsSvg";
 import LogoSvg from "../../icons/LogoSvg";
 import { useDispatch, useSelector } from "react-redux";
 import { setSidebarTab, TabSelectors } from "../../redux/reducers/tabReducer";
-import { AuthSelectors } from "../../redux/reducers/authReducer";
 import { setFilterCountry, setFilterGenres, setFilterSortTab } from "../../redux/reducers/filterReducer";
 
 const TABS = [

@@ -1,6 +1,15 @@
 import { all, takeLatest, put, call } from "redux-saga/effects";
-import { loadFilms, loadSearchFilms, setFilms, setMoreFilms, setSearchFilms } from "../redux/reducers/filmReducer";
-import { getFilmsApi, searchApi } from "./api";
+import { PathEnum } from "../enums/enums";
+import {
+  loadSelectedFilm,
+  loadFilms,
+  loadSearchFilms,
+  setSelectedFilm,
+  setFilms,
+  setMoreFilms,
+  setSearchFilms,
+} from "../redux/reducers/filmReducer";
+import { getSelectedFilmApi, getFilmsApi, searchApi } from "./api";
 
 function* getSearchFilmsSaga(action: any) {
   const access_token = localStorage.getItem("access_token");
@@ -11,7 +20,7 @@ function* getSearchFilmsSaga(action: any) {
   }
 }
 
-function* getHomeFilmsSaga(action: any) {
+function* getFilmsSaga(action: any) {
   const access_token = localStorage.getItem("access_token");
   const { isLoadMoreFilms, page, type, genre, country, order } = action.payload;
   const { data, status } = yield call(getFilmsApi, access_token, page, type, genre, country, order);
@@ -20,7 +29,21 @@ function* getHomeFilmsSaga(action: any) {
   }
 }
 
+function* getSelectedFilmSaga(action: any) {
+  const access_token = localStorage.getItem("access_token");
+  const { id } = action.payload;
+  const { data, status } = yield call(getSelectedFilmApi, access_token, id);
+  if (status === 200) {
+    yield put(setSelectedFilm(data.title));
+  } else if (status === 404) {
+    window.location.replace(PathEnum.Home);
+  }
+}
+
 export default function* filmWatcher() {
-  yield all([takeLatest(loadFilms, getHomeFilmsSaga)]);
-  yield all([takeLatest(loadSearchFilms, getSearchFilmsSaga)]);
+  yield all([
+    takeLatest(loadSelectedFilm, getSelectedFilmSaga),
+    takeLatest(loadFilms, getFilmsSaga),
+    takeLatest(loadSearchFilms, getSearchFilmsSaga),
+  ]);
 }

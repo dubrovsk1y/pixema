@@ -166,7 +166,7 @@ const SignUpForm = () => {
             onChange={onChangeInput}
             onBlur={onBlurHandler}
             isError={passwordDirty && passwordError}
-            // type="password"
+            type="password"
             placeholder="Your password"
             id="password"
           ></Input>
@@ -179,7 +179,7 @@ const SignUpForm = () => {
             onChange={onChangeInput}
             onBlur={onBlurHandler}
             isError={confirmPasswordDirty && confirmPasswordError}
-            // type="password"
+            type="password"
             placeholder="Confirm password"
             id="confirmPassword"
           ></Input>

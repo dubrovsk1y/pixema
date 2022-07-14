@@ -9,10 +9,10 @@ import Films from "../pages/Films";
 import Settings from "../pages/Settings";
 import SignInForm from "../pages/Forms/SignInForm";
 import SignUpForm from "../pages/Forms/SignUpForm";
+import Film from "../pages/Film";
 
 const Router = () => {
   const authStatus = useSelector(AuthSelectors.getAuthStatus);
-
   return (
     <BrowserRouter>
       {authStatus ? (
@@ -22,6 +22,7 @@ const Router = () => {
             <Route path={PathEnum.Trends} element={<Films pageName={"Trends"}></Films>}></Route>
             <Route path={PathEnum.Favorites} element={<Films pageName={"Favorites"}></Films>}></Route>
             <Route path={PathEnum.Settings} element={<Settings></Settings>}></Route>
+            <Route path={PathEnum.Film} element={<Film></Film>}></Route>
           </Route>
           <Route path="*" element={<Navigate to={PathEnum.Home} replace></Navigate>}></Route>
         </Routes>

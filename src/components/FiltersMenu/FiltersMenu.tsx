@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./FiltersMenu.css";
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import { ButtonEnum, FilterSortTabsEnum } from "../../enums/enums";
 import {
   FilterSelectors,
-  setCurrentPage,
   setFilterCountry,
   setFilterGenres,
   setFilterMenuStatus,

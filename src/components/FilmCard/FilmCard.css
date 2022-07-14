@@ -1,23 +1,22 @@
-.film {
+.filmCard {
   width: 266px;
 }
 
-.film__image {
+.filmCard__image {
   border-radius: 20px;
   overflow: hidden;
   display: flex;
   margin-bottom: 24px;
 }
 
-.film__image img {
+.filmCard__image img {
   width: 266px;
   height: 357px;
 }
 
-/* .film__info {
-} */
-
-.film__info__title {
+.filmCard__info__title {
+  cursor: pointer;
+  transition: 0.3s;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -26,7 +25,11 @@
   margin-bottom: 4px;
 }
 
-.film__info__type {
+.filmCard__info__title:hover {
+  color: #7b61ff;
+}
+
+.filmCard__info__type {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
