@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 type FilmState = {
   searchFilms: any;
   films: any;
+  filmsLoading: boolean;
+  selectedFilmLoading: boolean;
   selectedFilm: any;
   selectedFilmId: any;
   favoritesFilms: any;
@@ -11,6 +13,8 @@ type FilmState = {
 const initialState: FilmState = {
   searchFilms: [],
   films: [],
+  filmsLoading: false,
+  selectedFilmLoading: false,
   selectedFilm: null,
   selectedFilmId: null,
   favoritesFilms: [],
@@ -20,6 +24,12 @@ const filmSlice = createSlice({
   name: "films",
   initialState,
   reducers: {
+    setSelectedFilmLoading: (state: any, action: any) => {
+      state.selectedFilmLoading = action.payload;
+    },
+    setFilmsLoading: (state: any, action: any) => {
+      state.filmsLoading = action.payload;
+    },
     setMoreFilms: (state: any, action: any) => {
       state.films = [...state.films, ...action.payload];
     },
@@ -50,11 +60,15 @@ export const {
   loadSearchFilms,
   loadSelectedFilm,
   setSelectedFilmId,
+  setFilmsLoading,
+  setSelectedFilmLoading,
 } = filmSlice.actions;
 
 export default filmSlice.reducer;
 
 export const FilmSelectors = {
+  getSelectedFilmLoading: (state: any) => state.film.selectedFilmLoading,
+  getFilmsLoading: (state: any) => state.film.filmsLoading,
   getFilms: (state: any) => state.film.films,
   getSearchFilms: (state: any) => state.film.searchFilms,
   getSelectedFilm: (state: any) => state.film.selectedFilm,

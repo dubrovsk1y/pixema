@@ -5,12 +5,15 @@ import ShowMore from "../../components/ShowMore";
 import { FilmSelectors, loadFilms, loadSearchFilms, setSearchFilms } from "../../redux/reducers/filmReducer";
 import { FilterSelectors, setCurrentPage } from "../../redux/reducers/filterReducer";
 import "./Films.css";
+import Lottie from "react-lottie";
+import * as animationData from "../../lotties/98742-loading.json";
 
 type FilmsProps = {
   pageName: string;
 };
 
 const Films: FC<FilmsProps> = ({ pageName }) => {
+  const isLoading = useSelector(FilmSelectors.getFilmsLoading);
   const dispatch = useDispatch();
   const isHomePage = pageName === "Home";
   const order = isHomePage ? "budget:desc" : "popularity:desc";
@@ -54,11 +57,26 @@ const Films: FC<FilmsProps> = ({ pageName }) => {
     dispatch(setCurrentPage(page + 1));
   };
 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
     <main className="films">
       <div className="films__container">
-        <FilmsCardsList filmsList={filmsList}></FilmsCardsList>
-        {!searchValue.trim() && <ShowMore onClick={showMore}></ShowMore>}
+        {isLoading ? (
+          <Lottie options={defaultOptions} height={400} width={400} />
+        ) : (
+          <>
+            <FilmsCardsList filmsList={filmsList}></FilmsCardsList>
+            {!searchValue.trim() && <ShowMore onClick={showMore}></ShowMore>}
+          </>
+        )}
       </div>
     </main>
   );
